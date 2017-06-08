@@ -8,6 +8,9 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+.idea/
+historialmedico/settings/local.py
+hc_db.sqlite3
 env/
 build/
 develop-eggs/

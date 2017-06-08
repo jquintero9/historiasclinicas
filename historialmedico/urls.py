@@ -20,7 +20,7 @@ from historia import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home/$', views.home, name="home"),
+    url(r'^$', views.home, name="home"),
     url(r'^newpaciente/$', views.newPaciente, name="newpaciente"),
     url(r'^newconsulta/$', views.newConsulta, name="newconsulta"),
     url(r'^usuarios/', include('usuarios.urls'))
