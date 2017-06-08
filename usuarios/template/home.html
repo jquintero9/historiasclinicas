@@ -1,0 +1,10 @@
+{% extends 'base.html' %} 
+
+{% block title %}<h1>{{ title }}</h1>{% endblock title %} 
+
+{% block content %}
+
+
+<a href="{% url 'newpaciente' %}">Go to paciente</a>
+<a href="{% url 'newconsulta' %}">Go to consulta</a>
+{% endblock content %} 

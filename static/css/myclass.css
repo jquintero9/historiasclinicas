@@ -1,0 +1,25 @@
+body {
+	font-family: 'Bree Serif', serif;
+	font-size: 16px;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	height:100%;
+	margin: 0;
+  	margin-bottom: 70px;
+}
+main {
+	flex: 1 0 auto;
+}
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+footer {
+ 	position:fixed;
+   	left:0px;
+   	bottom:0px;
+   	height:65px;
+   	width:100%;
+}

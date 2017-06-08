@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Bienvenido a HistoriaClinica - Iniciar Sesión{% endblock %}
+{% block content %} 
+<div class="row">
+    <form id="form-center-autenticacion" class="z-depth-4 col s12 m7" action="" method="POST"> {% csrf_token %}
+        <div class="row">
+            <h2 class="titulo-form blue-text text-darken-3 col s12">Iniciar Sesión</h2>
+        </div>
+        <div class="row"> <!-- Input Email -->
+            <div id="input-username" class="input-field col s12 m10">
+                <i class="material-icons prefix">perm_identity</i>
+                {{ form.username }}
+                <label for="id_username">Nombre de Usuario</label>
+            </div>
+        </div>
+        <div class="row"> <!-- Input Password -->
+            <div id="input-password" class="input-field col s12 m10">
+                <i class="material-icons prefix">lock</i>
+                {{ form.password }}
+                <label for="id_password">Contraseña</label>
+            </div>
+        </div>
+        <div id="last-row" class="row">
+            <div class="input-field col s12 m7"> <!-- Botón Submit -->
+                <button class="btn waves-effect waves-light blue darken-1" type="submit">Acceder
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+            <div class="input-field col s12 m5"> <!-- Botón Crear Cuenta Vendedor    -->
+                <a class="link-form" href="{% url 'newmedico' %}">Crear una cuenta de vendedor</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %} 
+

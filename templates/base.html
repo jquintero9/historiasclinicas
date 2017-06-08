@@ -1,0 +1,111 @@
+  <!DOCTYPE html>
+  <html>
+  <html lang="es">
+    <head>
+      <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>{% block title %}{% endblock %}</title>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="/static/css/myclass.css"/>
+      <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <div class="navbar-fixed">
+       <nav>
+        <div class="nav-wrapper blue">
+          <a href="#" class="brand-logo" >HistoriaClinica</a>
+          <a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="mobile-demo" class="side-nav">
+              <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                  <li class="bold"><a class="center">Menú</a>
+                  <li><div class="divider"></div></li>
+                  <li><a href="#" class="icon-home"></a></li>
+                  <li><div class="divider"></div></li>
+                  {% if user.is_superuser %}
+                  <li><a href="#"></a></li>
+                  <li><div class="divider"></div></li>
+                  <li><a href="#"></a></li>
+                  <li><div class="divider"></div></li>
+                  <li><a href="{% url 'logout' %}" class="icon-sign-out">Salir</a></li>
+                  <li><div class="divider"></div></li>
+                  {% elif user.is_authenticated %}
+                  <li><a>{{user.first_name}}</a></li>
+                  <li><div class="divider"></div></li>
+                  <li><a href="{% url 'newpaciente' %}"></a>Registrar Paciente</li>
+                  <li><div class="divider"></div></li>
+                  <li><a href="{% url 'newconsulta' %"></a>Crear Historia</li>
+                  <li><div class="divider"></div></li>
+                  <li><a href="#">Contactanos</a></li>
+                  <li><div class="divider"></div></li>
+                  <li><a href="{% url 'logout' %}" class="icon-sign-out">Salir</a></li>
+                  <li><div class="divider"></div></li>
+                  {% else %}
+                  <li><a href="{% url 'login' %}" class="icon-sign-in">Entrar</a></li>
+                  <li><div class="divider"></div></li>
+                  <li><a href="{% url 'newmedico' %}" class="icon-user">Registrarte</a></li>
+                  <li><div class="divider"></div></li>
+                  <li><a href="#">Contactanos</a></li>
+                  {% endif %}
+                </ul>
+              </li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="#" class="icon-home"></a></li>
+              {% if user.is_superuser %}
+              <li><a href="{% url 'logout' %}" class="icon-sign-out">Salir</a></li>
+              {% elif user.is_authenticated %}
+              <li><a href="#">Hola! {{ user.first_name }}</a></li>
+              <li><a href="{% url 'newpaciente' %}"></a>Registrar Paciente</li>
+              <li><a href="{% url 'newconsulta' %}"></a>Crear Historia</li>
+              <li><a href="#">Contactanos</a></li>
+              <li><a href="{% url 'logout' %}" class="icon-sign-out">Salir</a></li>
+              {% else %}
+              <li><a href="{% url 'login' %}" class="icon-sign-in">Entrar</a></li>
+              <li><a href="{% url 'newmedico' %}" class="icon-user">Registrarte</a></li>
+              <li><a href="#">Contactanos</a></li>
+              {% endif %}
+            </ul>
+         <!-- <ul class="left hide-on-med-and-down">
+            <form>
+              <div class="input-field" style="width: 390%">
+                <input type="search" placeholder="Buscar" required>
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </ul> -->
+        </div>
+      </nav>
+    </div>
+  <div class="card-panel">
+    {% block content %}{% endblock %}
+  </div>
+ <footer class="page-footer blue">
+    <div class="footer-copyright">
+      <div class="container">
+      &copy; 2017 HistoriasClinicas, UTP.
+      </div>
+    </div>
+  </footer>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+      <script>
+        $(document).ready(function(){
+            $(".button-collapse").sideNav();
+        });
+
+
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+      </script>
+    </body>
+  </html>
