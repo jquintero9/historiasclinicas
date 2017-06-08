@@ -3,7 +3,6 @@ import os
 import dj_database_url
 from django.conf import settings
 
-SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = False
 DATABASES = settings.DATABASES
 

@@ -1,5 +1,6 @@
+from .base import *
+
 try:
-    from .base import *
     from .local import *
     live = False
 except ImportError:
@@ -7,4 +8,3 @@ except ImportError:
 
 if live:
     from .production import *
-    from .base import *
